@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Urban Bite Cafe | Surat Digital Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+        body { font-family: 'Poppins', sans-serif; background-color: #121212; color: #ffffff; }
+    </style>
+</head>
+<body class="bg-zinc-950 text-white pb-28">
+
+    <!-- Top Header -->
+    <header class="sticky top-0 z-40 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800 px-5 py-4 flex justify-between items-center">
+        <div>
+            <h1 class="text-xl font-bold text-amber-500"><i class="fas fa-utensils mr-2"></i>URBAN BITE CAFE</h1>
+            <p class="text-xs text-zinc-400">Vesu / Adajan, Surat • 100% Pure Veg 🌱</p>
+        </div>
+        <a href="https://wa.me/919876543210?text=Hi%20Urban%20Bite!%20I%20want%20to%20book%20a%20table." target="_blank" class="bg-amber-500 hover:bg-amber-600 text-black text-xs font-bold px-3 py-2 rounded-lg transition">
+            Book Table
+        </a>
+    </header>
+
+    <!-- Offer Banner -->
+    <div class="mx-4 mt-4 p-5 rounded-2xl bg-gradient-to-r from-amber-600 to-orange-600 text-white shadow-lg">
+        <span class="bg-black/30 text-xs px-2 py-1 rounded uppercase font-semibold">Zero Commission Direct Order</span>
+        <h2 class="text-2xl font-bold mt-2">Flat 15% OFF on Direct Orders! 🍕</h2>
+        <p class="text-xs text-amber-100 mt-1">Select items below & send your order directly to our WhatsApp for Table Service or Takeaway.</p>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="flex gap-2 overflow-x-auto px-4 py-4 no-scrollbar">
+        <button onclick="filterMenu('all')" class="cat-btn bg-amber-500 text-black font-semibold text-sm px-4 py-2 rounded-full whitespace-nowrap">All Items</button>
+        <button onclick="filterMenu('coffee')" class="cat-btn bg-zinc-800 text-zinc-300 font-semibold text-sm px-4 py-2 rounded-full whitespace-nowrap">☕ Coffee & Shakes</button>
+        <button onclick="filterMenu('snacks')" class="cat-btn bg-zinc-800 text-zinc-300 font-semibold text-sm px-4 py-2 rounded-full whitespace-nowrap">🍔 Burgers & Pizza</button>
+        <button onclick="filterMenu('surti')" class="cat-btn bg-zinc-800 text-zinc-300 font-semibold text-sm px-4 py-2 rounded-full whitespace-nowrap">🔥 Surti Special</button>
+    </div>
+
+    <!-- Menu Grid -->
+    <main class="px-4 space-y-4 max-w-2xl mx-auto" id="menu-list">
+        
+        <!-- Item 1 -->
+        <div class="menu-item bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex justify-between items-center" data-cat="coffee">
+            <div>
+                <span class="text-[10px] bg-green-900/50 text-green-400 border border-green-700 px-2 py-0.5 rounded">BESTSELLER</span>
+                <h3 class="font-bold text-base mt-1">Hazelnut Cold Coffee</h3>
+                <p class="text-xs text-zinc-400">Thick creamy coffee topped with choco chips</p>
+                <div class="text-amber-400 font-bold mt-2">₹140</div>
+            </div>
+            <button onclick="addItem('Hazelnut Cold Coffee', 140)" class="bg-amber-500 hover:bg-amber-600 text-black font-bold px-4 py-2 rounded-xl text-sm shadow">
+                ADD +
+            </button>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="menu-item bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex justify-between items-center" data-cat="snacks">
+            <div>
+                <span class="text-[10px] bg-amber-900/50 text-amber-400 border border-amber-700 px-2 py-0.5 rounded">CHEF SPECIAL</span>
+                <h3 class="font-bold text-base mt-1">Double Cheese Tandoori Pizza</h3>
+                <p class="text-xs text-zinc-400">Medium 8-inch loaded with liquid cheese & paneer</p>
+                <div class="text-amber-400 font-bold mt-2">₹260</div>
+            </div>
+            <button onclick="addItem('Double Cheese Tandoori Pizza', 260)" class="bg-amber-500 hover:bg-amber-600 text-black font-bold px-4 py-2 rounded-xl text-sm shadow">
+                ADD +
+            </button>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="menu-item bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex justify-between items-center" data-cat="surti">
+            <div>
+                <span class="text-[10px] bg-red-900/50 text-red-400 border border-red-700 px-2 py-0.5 rounded">SURAT FAVOURITE</span>
+                <h3 class="font-bold text-base mt-1">Cheese Butter Surti Locho</h3>
+                <p class="text-xs text-zinc-400">Served hot with green chutney, sev & loaded Amul butter</p>
+                <div class="text-amber-400 font-bold mt-2">₹110</div>
+            </div>
+            <button onclick="addItem('Cheese Butter Surti Locho', 110)" class="bg-amber-500 hover:bg-amber-600 text-black font-bold px-4 py-2 rounded-xl text-sm shadow">
+                ADD +
+            </button>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="menu-item bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex justify-between items-center" data-cat="snacks">
+            <div>
+                <h3 class="font-bold text-base">Peri-Peri Loaded Fries + Burger Combo</h3>
+                <p class="text-xs text-zinc-400">Crispy veggie burger with spicy fries & coke</p>
+                <div class="text-amber-400 font-bold mt-2">₹199</div>
+            </div>
+            <button onclick="addItem('Fries + Burger Combo', 199)" class="bg-amber-500 hover:bg-amber-600 text-black font-bold px-4 py-2 rounded-xl text-sm shadow">
+                ADD +
+            </button>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="menu-item bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex justify-between items-center" data-cat="coffee">
+            <div>
+                <h3 class="font-bold text-base">KitKat Brownie Thickshake</h3>
+                <p class="text-xs text-zinc-400">Rich Belgian chocolate blended with brownie chunks</p>
+                <div class="text-amber-400 font-bold mt-2">₹180</div>
+            </div>
+            <button onclick="addItem('KitKat Brownie Thickshake', 180)" class="bg-amber-500 hover:bg-amber-600 text-black font-bold px-4 py-2 rounded-xl text-sm shadow">
+                ADD +
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Store Info Footer -->
+    <footer class="mt-10 px-5 py-8 border-t border-zinc-800 text-center text-zinc-400 text-xs">
+        <p class="font-bold text-white text-sm">📍 The Urban Bite Cafe & Lounge</p>
+        <p class="mt-1">Ground Floor, Highfield Ascot, VIP Road, Vesu, Surat</p>
+        <p class="mt-1">Open Daily: 11:00 AM – 11:30 PM</p>
+    </footer>
+
+    <!-- Floating Bottom WhatsApp Cart Bar -->
+    <div id="cart-bar" class="fixed bottom-0 left-0 right-0 bg-zinc-900 border-t border-zinc-700 p-4 flex justify-between items-center z-50 shadow-2xl">
+        <div>
+            <div class="text-xs text-zinc-400"><span id="item-count">0</span> Items Selected</div>
+            <div class="text-lg font-bold text-amber-400">Total: ₹<span id="total-price">0</span></div>
+        </div>
+        <div class="flex gap-2">
+            <button onclick="clearCart()" class="bg-zinc-800 text-zinc-400 px-3 py-3 rounded-xl text-xs">Reset</button>
+            <button onclick="sendWhatsAppOrder()" class="bg-green-600 hover:bg-green-700 text-white font-bold px-5 py-3 rounded-xl flex items-center gap-2 text-sm shadow-lg">
+                <i class="fab fa-whatsapp text-lg"></i> Order on WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+        let total = 0;
+
+        function addItem(name, price) {
+            cart.push({ name, price });
+            total += price;
+            document.getElementById('item-count').innerText = cart.length;
+            document.getElementById('total-price').innerText = total;
+        }
+
+        function clearCart() {
+            cart = [];
+            total = 0;
+            document.getElementById('item-count').innerText = 0;
+            document.getElementById('total-price').innerText = 0;
+        }
+
+        function sendWhatsAppOrder() {
+            if (cart.length === 0) {
+                alert("Please click 'ADD +' on at least 1 item to place an order!");
+                return;
+            }
+            let itemSummary = cart.map((item, i) => `${i + 1}. ${item.name} (₹${item.price})`).join('%0A');
+            let message = `Hello *Urban Bite Cafe*! 🍔%0AI want to place a direct order:%0A%0A${itemSummary}%0A%0A*Total Bill: ₹${total}*%0A%0APlease confirm my order!`;
+            window.open(`https://wa.me/919876543210?text=${message}`, '_blank');
+        }
+
+        function filterMenu(category) {
+            const items = document.querySelectorAll('.menu-item');
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-cat') === category) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
